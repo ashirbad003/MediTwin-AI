@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from sqlalchemy import text
 
+from app.database.base import Base
 from app.database.database import engine
+
+# Create all database tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="MediTwin AI",
