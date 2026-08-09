@@ -24,6 +24,12 @@ def register_user(db: Session, user: UserCreate):
     if existing_user:
         raise ValueError("Email already registered.")
 
+    # Prevent public users from creating admin accounts
+    if user.role == "admin":
+        raise ValueError(
+            "Admin accounts cannot be created through public registration."
+        )
+
     new_user = User(
         full_name=user.full_name,
         email=user.email,

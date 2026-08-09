@@ -21,3 +21,7 @@ class UserResponse(UserBase):
     is_active: bool
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class UserStatusUpdate(BaseModel):
+    is_active: bool
