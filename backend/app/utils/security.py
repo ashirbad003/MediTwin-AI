@@ -1,5 +1,6 @@
 from passlib.context import CryptContext
 
+
 # Password hashing configuration
 pwd_context = CryptContext(
     schemes=["bcrypt"],
@@ -9,7 +10,7 @@ pwd_context = CryptContext(
 
 def hash_password(password: str) -> str:
     """
-    Convert plain password into hashed password.
+    Convert a plain password into a secure bcrypt hash.
     """
     return pwd_context.hash(password)
 
@@ -19,7 +20,7 @@ def verify_password(
     hashed_password: str
 ) -> bool:
     """
-    Verify plain password with hashed password.
+    Verify a plain password against the stored bcrypt hash.
     """
     return pwd_context.verify(
         plain_password,

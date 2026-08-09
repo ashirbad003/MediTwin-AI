@@ -3,9 +3,14 @@ from sqlalchemy import text
 
 from app.database.base import Base
 from app.database.database import engine
+from app.api.auth import router as auth_router
+from app.api.doctor import router as doctor_router
+from app.api.patient import router as patient_router
+from app.api.admin import router as admin_router
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="MediTwin AI",
@@ -13,6 +18,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
+
+# Register Authentication Routes
+app.include_router(auth_router)
+
+# Register Doctor Routes
+app.include_router(doctor_router)
+
+# Register Patient Routes
+app.include_router(patient_router)
+
+# Register Admin Routes
+app.include_router(admin_router)
 
 @app.get("/")
 def home():
