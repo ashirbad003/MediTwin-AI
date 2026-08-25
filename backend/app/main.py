@@ -3,6 +3,12 @@ from sqlalchemy import text
 
 from app.database.base import Base
 from app.database.database import engine
+
+# Import models before creating database tables
+from app.models.user import User
+from app.models.doctor import Doctor
+from app.models.patient import Patient
+
 from app.api.auth import router as auth_router
 from app.api.doctor import router as doctor_router
 from app.api.patient import router as patient_router
