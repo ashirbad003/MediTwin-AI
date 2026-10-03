@@ -1,0 +1,39 @@
+{
+  "cardiovascular": {
+    "model_name": "Cardiovascular_Risk_GradientBoosting",
+    "version": "1.2.0",
+    "training_samples": 2000,
+    "test_samples": 500,
+    "accuracy": 0.942,
+    "precision": 0.4,
+    "recall": 0.0714,
+    "f1_score": 0.1212,
+    "roc_auc": 0.723,
+    "features": [
+      "Age",
+      "Gender (Male=1)",
+      "Systolic BP",
+      "Diastolic BP",
+      "Total Cholesterol",
+      "Fasting Glucose",
+      "BMI",
+      "Smoking",
+      "Alcohol Intake",
+      "Physical Activity",
+      "Family History"
+    ],
+    "feature_importances": {
+      "Age": 0.2558,
+      "Gender (Male=1)": 0.0092,
+      "Systolic BP": 0.167,
+      "Diastolic BP": 0.0652,
+      "Total Cholesterol": 0.1378,
+      "Fasting Glucose": 0.1801,
+      "BMI": 0.1332,
+      "Smoking": 0.0268,
+      "Alcohol Intake": 0.0074,
+      "Physical Activity": 0.0018,
+      "Family History": 0.0158
+    }
+  }
+}

@@ -1,28 +1,31 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
+from typing import Optional
 
 
 class DoctorBase(BaseModel):
-    specialization: str | None = None
-    qualification: str | None = None
-    license_number: str | None = None
-    experience_years: int | None = None
-    department: str | None = None
+    specialization: Optional[str] = None
+    qualification: Optional[str] = None
+    license_number: Optional[str] = None
+    experience_years: Optional[int] = None
+    department: Optional[str] = None
+    bio: Optional[str] = None
+    consultation_fee: Optional[int] = 500
+    availability: Optional[str] = "Mon-Fri, 9:00 AM - 5:00 PM"
 
 
 class DoctorCreate(DoctorBase):
-    user_id: int
+    pass
 
 
-class DoctorUpdate(BaseModel):
-    specialization: str | None = None
-    qualification: str | None = None
-    license_number: str | None = None
-    experience_years: int | None = None
-    department: str | None = None
+class DoctorUpdate(DoctorBase):
+    pass
 
 
 class DoctorResponse(DoctorBase):
     id: int
     user_id: int
+    full_name: Optional[str] = None
+    email: Optional[str] = None
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True

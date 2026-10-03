@@ -1,18 +1,68 @@
-# Python
+# ========================================================
+# MediTwin-AI Git Ignore Rules
+# ========================================================
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env.local
+frontend/.env.*.local
+
+# Python Artifacts & Caches
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
 
-# Virtual Environment
+# Virtual Environments
 .venv/
+venv/
+ENV/
+env/
 
-# Environment Variables
-.env
-
-# VS Code
-.vscode/
-
-# Node
+# Node & Frontend Build
 node_modules/
+frontend/dist/
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local Uploads & Medical Documents
+backend/uploads/*
+!backend/uploads/.gitkeep
+uploads/
+
+# Local Databases
+*.db
+*.sqlite
+*.sqlite3
 
 # Logs
 *.log
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local Scratch & Temporary Files
+scratch/
+tmp/
+temp/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+Desktop.ini
